@@ -4,8 +4,15 @@ angular.module('App', ['ionic'])
 			url: '/home',
 			templateUrl: 'views/home/home.html'
 		});
+
+    $stateProvider.state('reservation', {
+      url: '/reservation',
+      controller: 'ReservationController',
+      templateUrl: "views/reservation/reservation.html"
+    });
+
 		$urlRouterProvider.otherwise('/home');
-	})
+  })
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
