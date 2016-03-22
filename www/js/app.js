@@ -1,19 +1,26 @@
 angular.module('App', ['ionic'])
-	.config(function ($stateProvider, $urlRouterProvider) {
-		$stateProvider.state('home', {
+
+.config(function ($stateProvider, $urlRouterProvider) {
+	$stateProvider
+    .state('home', {
 			url: '/home',
 			templateUrl: 'views/home/home.html'
-		});
+		})
 
-    $stateProvider.state('reservation', {
+    .state('reservation', {
       url: '/reservation',
       controller: 'ReservationController',
       templateUrl: "views/reservation/reservation.html"
+    })
+
+    .state('weather', {
+      url: '/weather',
+      controller: 'WeatherController',
+      templateUrl: 'views/weather/weather.html'
     });
 
-		$urlRouterProvider.otherwise('/home');
-  })
-
+	 $urlRouterProvider.otherwise('/home');
+})
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -24,3 +31,4 @@ angular.module('App', ['ionic'])
     }
   });
 })
+
